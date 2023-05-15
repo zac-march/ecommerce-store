@@ -2,18 +2,19 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
+import Browse from "./components/Browse/Browse";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/browse" element={<Navbar />} />
+          <Route path="/browse" element={<Browse />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
