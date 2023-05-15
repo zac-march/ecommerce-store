@@ -1,8 +1,8 @@
 import React from "react";
-import style from "./GameCard.module.css";
+import style from "./ProductCard.module.css";
 import uniqid from "uniqid";
 
-const GameCard = (props) => {
+const ProductCard = (props) => {
   const { data } = props;
   return (
     <div id={data.id} className={style.card}>
@@ -19,4 +19,4 @@ const GameCard = (props) => {
   );
 };
 
-export default GameCard;
+export default ProductCard;

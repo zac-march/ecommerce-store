@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import style from "./Browse.module.css";
-import gameData from "../data/data.json";
+import style from "./StorePage.module.css";
+import productData from "../../data/data.json";
 import uniqid from "uniqid";
-import GameCard from "../GameCard/GameCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
-const Browse = () => {
-  const [games, setGames] = useState([]);
+const StorePage = () => {
+  const [products, setGames] = useState([]);
 
   useEffect(() => {
-    getFilterData();
+    getFilteredData();
   }, []);
 
-  const getFilterData = () => {
-    console.log(gameData);
-    const filteredData = gameData.results.map(
+  const getFilteredData = () => {
+    console.log(productData);
+    const filteredData = productData.results.map(
       ({ name, background_image, parent_platforms }) => ({
         title: name,
         cover_image: background_image,
@@ -23,13 +23,15 @@ const Browse = () => {
 
     filteredData.forEach((data) => {
       data.platforms = data.platforms.map((item) => item.platform.name);
-      data["id"] = "game_" + uniqid();
+      data["id"] = "product_" + uniqid();
     });
 
     console.log(filteredData);
 
     setGames(filteredData);
   };
+
+  function handleProduct() {}
 
   return (
     <div className={style.browse}>
@@ -41,12 +43,12 @@ const Browse = () => {
         </p>
       </div>
       <div className={style.games}>
-        {games.map((game) => (
-          <GameCard key={uniqid()} data={game} />
+        {products.map((game) => (
+          <ProductCard key={uniqid()} data={game} onClick={handleProduct} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Browse;
+export default StorePage;

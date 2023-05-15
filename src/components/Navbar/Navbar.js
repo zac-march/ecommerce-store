@@ -9,7 +9,7 @@ const Navbar = (props) => {
         <Link to={"/"}>
           <button>ZMGames</button>
         </Link>
-        <Link to={"/browse"}>
+        <Link to={"/store"}>
           <button>Browse</button>
         </Link>
       </div>
