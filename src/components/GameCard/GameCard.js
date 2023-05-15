@@ -1,16 +1,17 @@
 import React from "react";
 import style from "./GameCard.module.css";
+import uniqid from "uniqid";
 
 const GameCard = (props) => {
   const { data } = props;
   return (
-    <div className={style.card}>
-      <img alt="Game cover" src={data.background_image} />
+    <div id={data.id} className={style.card}>
+      <img alt="Game cover" src={data.cover_image} />
       <div className={style.bottom}>
-        <h3>{data.name}</h3>
+        <h3>{data.title}</h3>
         <ul className={style.platformList}>
-          {data.parent_platforms.map((platform) => (
-            <li>{platform}</li>
+          {data.platforms.map((platform) => (
+            <li key={uniqid()}>{platform}</li>
           ))}
         </ul>
       </div>

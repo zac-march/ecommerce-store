@@ -14,18 +14,16 @@ const Browse = () => {
   const getFilterData = () => {
     console.log(gameData);
     const filteredData = gameData.results.map(
-      ({ name, rating, background_image, parent_platforms }) => ({
-        name,
-        rating,
-        background_image,
-        parent_platforms,
+      ({ name, background_image, parent_platforms }) => ({
+        title: name,
+        cover_image: background_image,
+        platforms: parent_platforms,
       })
     );
 
     filteredData.forEach((data) => {
-      data.parent_platforms = data.parent_platforms.map(
-        (item) => item.platform.name
-      );
+      data.platforms = data.platforms.map((item) => item.platform.name);
+      data["id"] = "game_" + uniqid();
     });
 
     console.log(filteredData);
