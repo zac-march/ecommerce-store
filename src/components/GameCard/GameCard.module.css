@@ -1,0 +1,43 @@
+.card * {
+  margin: 0;
+}
+
+.card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 15px;
+  background-color: #202020;
+  cursor: pointer;
+}
+
+.bottom {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.platformList {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+
+  gap: 0.5rem;
+  color: #7e7e7e;
+  font-size: 0.9rem;
+}
+
+.platformList li {
+  display: inline;
+  margin-right: 0.5rem;
+}
