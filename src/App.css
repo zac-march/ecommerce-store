@@ -4,11 +4,12 @@ html {
 }
 
 .App {
-  background-color: rgb(35, 35, 35);
+  background-color: rgba(0, 0, 0, 0.945);
   color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding: 2rem;
 }
 
 button {
