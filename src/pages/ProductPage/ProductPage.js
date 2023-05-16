@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ProductPage = (props) => {
   const [product, setProduct] = useState();
   const { productId } = useParams();
-  const { data } = props;
+  const { data, addToCart } = props;
 
   useEffect(() => {
     setProduct(data.filter((entry) => entry.id === productId)[0]);
@@ -44,7 +44,9 @@ const ProductPage = (props) => {
 
             <div className={style.price}>
               <p>$70</p>
-              <button>+ Add to Cart</button>
+              <button data-id={product.id} onClick={addToCart}>
+                + Add to Cart
+              </button>
             </div>
           </div>
         </div>

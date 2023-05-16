@@ -1,0 +1,53 @@
+.cart {
+  background-color: rgb(26, 26, 26);
+  padding: 2rem;
+}
+
+.cart ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container {
+  position: fixed;
+  display: grid;
+  top: 0;
+  right: 0;
+  grid-template-columns: 1fr 400px;
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0.373);
+  backdrop-filter: blur(4px);
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: #262626;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.cartItem p,
+.cartItem h1 {
+  margin: 0;
+}
+
+.cartItem > p {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.cartItem > div {
+  display: flex;
+  gap: 1rem;
+}
