@@ -19,51 +19,86 @@ function App() {
   }, []);
 
   const filterData = () => {
+    console.log(productData);
     const filteredData = productData.results.map(
-      ({ name, background_image, parent_platforms }) => ({
+      ({ name, background_image, parent_platforms, slug }) => ({
         title: name,
         cover_image: background_image,
         platforms: parent_platforms,
+        id: slug,
       })
     );
 
     filteredData.forEach((entry) => {
       entry.platforms = entry.platforms.map((item) => item.platform.name);
-      entry["id"] = uniqid();
     });
-    console.log(filteredData);
     setProducts(filteredData);
   };
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   function toggleCart() {
     setIsCartOpen(!isCartOpen);
   }
 
-  function addToCart(e) {
-    const product = products.filter(
-      (entry) => entry.id === e.target.dataset.id
-    )[0];
+  const addToCart = (productId) => {
+    const product = products.filter((entry) => entry.id === productId)[0];
 
     setCart((prevCart) => {
       return [...prevCart, product];
     });
-  }
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(() => {
+      return [...cart.filter((entry) => entry.id !== productId)];
+    });
+  };
+
+  const toggleAddToCart = (productId) => {
+    if (isInCart(productId)) {
+      removeFromCart(productId);
+    } else {
+      addToCart(productId);
+    }
+  };
+
+  const isInCart = (productId) => {
+    console.log("Cart: ", cart);
+    const inCart = cart.some((product) => product.id === productId);
+    return inCart;
+  };
 
   return (
     <BrowserRouter>
       <div className="App">
-        <Cart toggleCart={toggleCart} isOpen={isCartOpen} cart={cart} />
-        <Navbar toggleCart={toggleCart} />
+        <Cart
+          toggleCart={toggleCart}
+          isOpen={isCartOpen}
+          cart={cart}
+          removeFromCart={removeFromCart}
+        />
+        <Navbar toggleCart={toggleCart} cartCount={cart.length} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/store" exact element={<StorePage data={products} />} />
+          <Route
+            path="/store"
+            exact
+            element={
+              <StorePage
+                products={products}
+                toggleAddToCart={toggleAddToCart}
+                isInCart={isInCart}
+              />
+            }
+          />
           <Route
             path="/store/:productId"
-            element={<ProductPage data={products} addToCart={addToCart} />}
+            element={
+              <ProductPage
+                products={products}
+                toggleAddToCart={toggleAddToCart}
+                isInCart={isInCart}
+              />
+            }
           />
         </Routes>
       </div>

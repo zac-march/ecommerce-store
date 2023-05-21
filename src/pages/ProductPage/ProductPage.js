@@ -2,20 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import style from "./ProductPage.module.css";
 import { Link } from "react-router-dom";
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
+import addToCartStyle from "../../components/AddToCartBtn/AddToCartBtn.module.css";
 
 const ProductPage = (props) => {
   const [product, setProduct] = useState();
   const { productId } = useParams();
-  const { data, addToCart } = props;
+  const { products, toggleAddToCart, isInCart } = props;
 
   useEffect(() => {
-    setProduct(data.filter((entry) => entry.id === productId)[0]);
+    setProduct(products.filter((entry) => entry.id === productId)[0]);
     // eslint-disable-next-line
   }, []);
 
   return (
     <div className={style.page}>
-      <div class={style.header}>
+      <div className={style.header}>
         <Link to="/store">
           <button className={style.returnBtn}>← Store</button>
         </Link>
@@ -27,7 +29,7 @@ const ProductPage = (props) => {
             <img alt="product" src={product.cover_image}></img>
           </div>
           <div className={style.info}>
-            <div class={style.about}>
+            <div className={style.about}>
               <h3>About</h3>
               <p>
                 Mauris placerat dolor in neque mattis luctus. Pellentesque
@@ -44,9 +46,12 @@ const ProductPage = (props) => {
 
             <div className={style.price}>
               <p>$70</p>
-              <button data-id={product.id} onClick={addToCart}>
-                + Add to Cart
-              </button>
+              <AddToCartBtn
+                className={addToCartStyle.addToCart}
+                toggleAddToCart={toggleAddToCart}
+                isInCart={isInCart}
+                productId={productId}
+              />
             </div>
           </div>
         </div>

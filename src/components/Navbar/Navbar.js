@@ -3,7 +3,7 @@ import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
-  const { toggleCart } = props;
+  const { toggleCart, cartCount } = props;
   return (
     <div className={style.navbar}>
       <div>
@@ -16,7 +16,9 @@ const Navbar = (props) => {
       </div>
       <div>
         <button>zac-march</button>
-        <button onClick={toggleCart}>Cart</button>
+        <button onClick={toggleCart}>
+          Cart{cartCount > 0 && ": " + cartCount}
+        </button>
       </div>
     </div>
   );

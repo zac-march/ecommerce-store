@@ -5,7 +5,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 
 const StorePage = (props) => {
-  const { data } = props;
+  const { products, toggleAddToCart, isInCart } = props;
 
   function handleProduct() {}
 
@@ -19,13 +19,18 @@ const StorePage = (props) => {
         </p>
       </div>
       <div className={style.products}>
-        {data.map((product) => (
+        {products.map((product) => (
           <Link
             key={uniqid()}
             to={`/store/${product.id}`}
             className="routeLink"
           >
-            <ProductCard data={product} onClick={handleProduct} />
+            <ProductCard
+              product={product}
+              onClick={handleProduct}
+              toggleAddToCart={toggleAddToCart}
+              isInCart={isInCart}
+            />
           </Link>
         ))}
       </div>

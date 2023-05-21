@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Cart.module.css";
 
 const Cart = (props) => {
-  const { isOpen, toggleCart, cart } = props;
+  const { isOpen, toggleCart, cart, removeFromCart } = props;
   return (
     isOpen && (
       <div className={style.container}>
@@ -18,7 +18,7 @@ const Cart = (props) => {
                 <p>{product.title}</p>
                 <div>
                   <p>$20</p>
-                  <button>X</button>
+                  <button onClick={() => removeFromCart(product.id)}>X</button>
                 </div>
               </div>
             ))}

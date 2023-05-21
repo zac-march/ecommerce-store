@@ -1,0 +1,9 @@
+.addToCart {
+  width: max-content;
+  background-color: #20202000;
+  color: white;
+}
+
+.addToCart[data-incart="true"] {
+  color: rgb(120, 255, 47);
+}
