@@ -4,6 +4,7 @@ import style from "./ProductPage.module.css";
 import { Link } from "react-router-dom";
 import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
 import addToCartStyle from "../../components/AddToCartBtn/AddToCartBtn.module.css";
+import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 
 const ProductPage = (props) => {
   const [product, setProduct] = useState();
@@ -26,7 +27,7 @@ const ProductPage = (props) => {
       {product && (
         <div className={style.product}>
           <div className={style.images}>
-            <img alt="product" src={product.cover_image}></img>
+            <ImageCarousel screenshots={product.screenshots} />
           </div>
           <div className={style.info}>
             <div className={style.about}>

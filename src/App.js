@@ -1,5 +1,4 @@
 import "./App.css";
-import uniqid from "uniqid";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
@@ -19,13 +18,19 @@ function App() {
   }, []);
 
   const filterData = () => {
-    console.log(productData);
     const filteredData = productData.results.map(
-      ({ name, background_image, parent_platforms, slug }) => ({
+      ({
+        name,
+        background_image,
+        parent_platforms,
+        slug,
+        short_screenshots,
+      }) => ({
         title: name,
         cover_image: background_image,
         platforms: parent_platforms,
         id: slug,
+        screenshots: short_screenshots,
       })
     );
 
@@ -62,7 +67,6 @@ function App() {
   };
 
   const isInCart = (productId) => {
-    console.log("Cart: ", cart);
     const inCart = cart.some((product) => product.id === productId);
     return inCart;
   };
