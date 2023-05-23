@@ -6,12 +6,8 @@ const Cart = (props) => {
   const { isOpen, toggleCart, cart, removeFromCart } = useContext(CartContext);
   const [total, setTotal] = useState();
 
-  function getTotal() {
-    setTotal(cart.reduce((acc, item) => acc + item.price, 0));
-  }
-
   useEffect(() => {
-    getTotal();
+    setTotal(cart.reduce((acc, item) => acc + item.price, 0));
   }, [cart]);
 
   return (

@@ -12,6 +12,7 @@ const AddToCartBtn = (props) => {
     toggleAddToCart(productId);
   };
 
+  // eslint-disable-next-line
   useEffect(() => {
     setInCart(isInCart(productId));
   });

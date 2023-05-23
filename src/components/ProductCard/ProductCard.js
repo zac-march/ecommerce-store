@@ -4,18 +4,14 @@ import uniqid from "uniqid";
 import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
 
 const ProductCard = (props) => {
-  const { product, toggleAddToCart, isInCart } = props;
+  const { product } = props;
 
   return (
     <div id={product.id} className={style.card}>
       <img alt="Game cover" src={product.cover_image} />
       <div className={style.bottom}>
         <div className={style.addToCartContainer}>
-          <AddToCartBtn
-            toggleAddToCart={toggleAddToCart}
-            isInCart={isInCart}
-            productId={product.id}
-          />
+          <AddToCartBtn productId={product.id} />
           <h4>${product.price / 100}</h4>
         </div>
         <h3>{product.title}</h3>
