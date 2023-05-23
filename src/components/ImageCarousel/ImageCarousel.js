@@ -6,6 +6,7 @@ import arrowBackward from "../../images/arrow_back.svg";
 const ImageCarousel = (props) => {
   const { screenshots } = props;
   const [cauroselItems, setCauroselItems] = useState();
+  const [currentSlide, setCurrentSlide] = useState();
 
   useEffect(() => {
     const items = screenshots.map((screenshot, index) => {
@@ -18,31 +19,39 @@ const ImageCarousel = (props) => {
           />
         ),
         anchor: (
-          <a id={"anchor-" + index} href={"#slide-" + index} aria-hidden="true">
+          <a
+            onClick={() => setCurrentSlide(index)}
+            id={"anchor-" + index}
+            href={"#slide-" + index}
+            aria-hidden="true"
+          >
             {" "}
           </a>
         ),
       };
     });
     setCauroselItems(items);
+
+    setCurrentSlide(0);
   }, []);
 
-  function handleSlide(direction) {
-    let anchorTag = window.location.hash;
-    if (!anchorTag) anchorTag = "#slide-0";
-
-    const anchorParts = anchorTag.split("-");
-    const currentSlideIdx = parseInt(anchorParts[1]);
-
-    let nextSlideIdx;
-    if (direction === "next") {
-      nextSlideIdx = (currentSlideIdx + 1) % cauroselItems.length;
-    } else if (direction === "previous") {
-      nextSlideIdx =
-        (currentSlideIdx - 1 + cauroselItems.length) % cauroselItems.length;
+  useEffect(() => {
+    const anchorLink = document.querySelector("#anchor-" + currentSlide);
+    if (anchorLink) {
+      const anchors = document.querySelectorAll('[id^="anchor-"]');
+      for (let anchor of anchors) anchor.classList.remove(style.highlight);
+      anchorLink.click();
+      anchorLink.classList.add(style.highlight);
     }
+  }, [currentSlide]);
 
-    document.querySelector("#anchor-" + nextSlideIdx).click();
+  function handleSlide(direction) {
+    if (direction > 0)
+      setCurrentSlide((currentSlide + direction) % cauroselItems.length);
+    else
+      setCurrentSlide(
+        (currentSlide + direction + cauroselItems.length) % cauroselItems.length
+      );
   }
 
   return (
@@ -56,15 +65,15 @@ const ImageCarousel = (props) => {
             <div className={style.sliderBtns}>
               <button
                 className={style.sliderBtnLeft}
-                onClick={() => handleSlide("previous")}
+                onClick={() => handleSlide(-1)}
               >
-                <img src={arrowBackward} />
+                <img alt="Arrow backward" src={arrowBackward} />
               </button>
               <button
                 className={style.sliderBtnRight}
-                onClick={() => handleSlide("next")}
+                onClick={() => handleSlide(1)}
               >
-                <img src={arrowForward} />
+                <img alt="Arrow forward" src={arrowForward} />
               </button>
             </div>
             <div className={style.sliderNav}>
