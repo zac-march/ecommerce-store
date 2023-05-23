@@ -1,9 +1,12 @@
+@import "../../App.css";
+
 .addToCart {
   width: max-content;
   background-color: #20202000;
   color: white;
+  transition: var(--quickTransition);
 }
 
 .addToCart[data-incart="true"] {
-  color: rgb(120, 255, 47);
+  color: #45a94f;
 }

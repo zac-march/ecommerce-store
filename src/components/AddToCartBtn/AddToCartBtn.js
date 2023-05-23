@@ -16,11 +16,11 @@ const AddToCartBtn = (props) => {
 
   return (
     <button
-      className={style.addToCart}
+      className={`${style.addToCart} btn`}
       data-incart={inCart}
       onClick={(e) => handleAddToCart(e)}
     >
-      + Add to Cart
+      {!inCart ? "+ Add to Cart" : "✓ Added"}
     </button>
   );
 };

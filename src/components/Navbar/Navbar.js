@@ -8,15 +8,15 @@ const Navbar = (props) => {
     <div className={style.navbar}>
       <div>
         <Link to={"/"}>
-          <button>ZMGames</button>
+          <button className="btn">ZMGames</button>
         </Link>
         <Link to={"/store"}>
-          <button>Browse</button>
+          <button className="btn">Browse</button>
         </Link>
       </div>
       <div>
-        <button>zac-march</button>
-        <button onClick={toggleCart}>
+        <button className="btn">zac-march</button>
+        <button className="btn" onClick={toggleCart}>
           Cart{cartCount > 0 && ": " + cartCount}
         </button>
       </div>

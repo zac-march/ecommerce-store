@@ -46,9 +46,8 @@ const ProductPage = (props) => {
             </div>
 
             <div className={style.price}>
-              <p>$70</p>
+              <p>${product.price / 100}</p>
               <AddToCartBtn
-                className={addToCartStyle.addToCart}
                 toggleAddToCart={toggleAddToCart}
                 isInCart={isInCart}
                 productId={productId}

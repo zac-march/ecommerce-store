@@ -1,3 +1,5 @@
+@import "../../App.css";
+
 .card * {
   margin: 0;
 }
@@ -14,6 +16,11 @@
   border-radius: 15px;
   background-color: #202020;
   cursor: pointer;
+  transition: var(--quickTransition);
+}
+
+.card:hover {
+  transform: var(--scaleUp);
 }
 
 .bottom {
@@ -40,4 +47,9 @@
 .platformList li {
   display: inline;
   margin-right: 0.5rem;
+}
+
+.addToCartContainer {
+  display: flex;
+  justify-content: space-between;
 }
