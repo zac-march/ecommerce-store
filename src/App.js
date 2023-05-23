@@ -14,10 +14,10 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
-    filterData();
+    getData();
   }, []);
 
-  const filterData = () => {
+  const getData = () => {
     const filteredData = productData.results.map(
       ({
         name,
@@ -36,6 +36,8 @@ function App() {
 
     filteredData.forEach((entry) => {
       entry.platforms = entry.platforms.map((item) => item.platform.name);
+      entry["price"] =
+        Math.round((Math.random() * (10000 - 5000) + 500) / 500) * 500;
     });
     setProducts(filteredData);
   };
