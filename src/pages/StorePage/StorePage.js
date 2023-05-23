@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./StorePage.module.css";
 import uniqid from "uniqid";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import { ProductContext } from "../../ProductContext";
 
 const StorePage = (props) => {
-  const { products, toggleAddToCart, isInCart } = props;
-
-  function handleProduct() {}
+  const { products } = useContext(ProductContext);
 
   return (
     <div className={style.store}>
@@ -19,20 +18,16 @@ const StorePage = (props) => {
         </p>
       </div>
       <div className={style.products}>
-        {products.map((product) => (
-          <Link
-            key={uniqid()}
-            to={`/store/${product.id}`}
-            className="routeLink"
-          >
-            <ProductCard
-              product={product}
-              onClick={handleProduct}
-              toggleAddToCart={toggleAddToCart}
-              isInCart={isInCart}
-            />
-          </Link>
-        ))}
+        {products &&
+          products.map((product) => (
+            <Link
+              key={uniqid()}
+              to={`/store/${product.id}`}
+              className="routeLink"
+            >
+              <ProductCard product={product} />
+            </Link>
+          ))}
       </div>
     </div>
   );

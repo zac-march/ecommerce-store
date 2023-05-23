@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../CartContext";
 
 const Navbar = (props) => {
-  const { toggleCart, cartCount } = props;
+  const { toggleCart, cart } = useContext(CartContext);
+  const [cartCount, setCartCount] = useState();
+
+  useEffect(() => {
+    setCartCount(cart.length);
+  }, [cart]);
+
   return (
     <div className={style.navbar}>
       <div>

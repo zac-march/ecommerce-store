@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import style from "./ProductPage.module.css";
 import { Link } from "react-router-dom";
 import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
-import addToCartStyle from "../../components/AddToCartBtn/AddToCartBtn.module.css";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
+import { ProductContext } from "../../ProductContext";
 
 const ProductPage = (props) => {
   const [product, setProduct] = useState();
   const { productId } = useParams();
-  const { products, toggleAddToCart, isInCart } = props;
+  const { products } = useContext(ProductContext);
 
   useEffect(() => {
     setProduct(products.filter((entry) => entry.id === productId)[0]);
@@ -47,11 +47,7 @@ const ProductPage = (props) => {
 
             <div className={style.price}>
               <p>${product.price / 100}</p>
-              <AddToCartBtn
-                toggleAddToCart={toggleAddToCart}
-                isInCart={isInCart}
-                productId={productId}
-              />
+              <AddToCartBtn productId={productId} />
             </div>
           </div>
         </div>

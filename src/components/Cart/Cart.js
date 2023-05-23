@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Cart.module.css";
+import { CartContext } from "../../CartContext";
 
 const Cart = (props) => {
-  const { isOpen, toggleCart, cart, removeFromCart } = props;
+  const { isOpen, toggleCart, cart, removeFromCart } = useContext(CartContext);
   const [total, setTotal] = useState();
 
   function getTotal() {

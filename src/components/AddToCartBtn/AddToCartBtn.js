@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import style from "./AddToCartBtn.module.css";
+import { CartContext } from "../../CartContext";
 
 const AddToCartBtn = (props) => {
-  const { isInCart, toggleAddToCart, productId } = props;
+  const { productId } = props;
   const [inCart, setInCart] = useState();
+  const { toggleAddToCart, isInCart } = useContext(CartContext);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ const AddToCartBtn = (props) => {
       data-incart={inCart}
       onClick={(e) => handleAddToCart(e)}
     >
-      {!inCart ? "+ Add to Cart" : "✓ Added"}
+      {inCart ? "✓ Added" : "+ Add to Cart"}
     </button>
   );
 };
