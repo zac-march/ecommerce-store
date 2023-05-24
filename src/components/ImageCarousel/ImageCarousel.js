@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./ImageCarousel.module.css";
 import arrowForward from "../../resources/images/arrow_forward.svg";
 import arrowBackward from "../../resources/images/arrow_back.svg";
+import uniqid from "uniqid";
 
 const ImageCarousel = (props) => {
   const { screenshots } = props;
@@ -10,9 +11,11 @@ const ImageCarousel = (props) => {
 
   useEffect(() => {
     const items = screenshots.map((screenshot, index) => {
+      const key = uniqid();
       return {
         image: (
           <img
+            key={key}
             alt="screenshot of game"
             id={"slide-" + index}
             src={screenshot.image}
@@ -20,6 +23,7 @@ const ImageCarousel = (props) => {
         ),
         anchor: (
           <a
+            key={key}
             onClick={() => setCurrentSlide(index)}
             id={"anchor-" + index}
             href={"#slide-" + index}
