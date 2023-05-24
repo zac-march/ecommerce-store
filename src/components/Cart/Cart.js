@@ -38,7 +38,7 @@ const Cart = (props) => {
           </div>
           <div className={style.cartBottom}>
             <p>Total: ${total / 100}</p>
-            <button className="btn">Checkout -{">"}</button>
+            <button className="btn">Checkout</button>
           </div>
         </div>
         <div onClick={toggleCart} className={style.background}></div>

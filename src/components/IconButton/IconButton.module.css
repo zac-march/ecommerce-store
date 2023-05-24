@@ -1,0 +1,19 @@
+@import "../../App.css";
+
+.iconBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconBtn > p {
+  margin: 0;
+}
+
+.iconBtn > img {
+  height: 1.8rem;
+  width: 1.8rem;
+  display: inline-block;
+  vertical-align: baseline;
+}
