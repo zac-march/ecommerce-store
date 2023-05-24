@@ -34,7 +34,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Create the context value object
   const contextValue = {
     cart,
     isOpen,
@@ -44,7 +43,6 @@ export const CartProvider = ({ children }) => {
     toggleAddToCart,
   };
 
-  // Provide the context value to the children components
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
