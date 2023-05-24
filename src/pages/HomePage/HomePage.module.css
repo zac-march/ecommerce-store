@@ -20,3 +20,15 @@
 .home p {
   font-size: 1.5rem;
 }
+
+.splashVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  background-attachment: fixed;
+  filter: blur(2px) brightness(0.7);
+  transform: translateX(50px);
+}

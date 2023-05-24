@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./ImageCarousel.module.css";
-import arrowForward from "../../images/arrow_forward.svg";
-import arrowBackward from "../../images/arrow_back.svg";
+import arrowForward from "../../resources/images/arrow_forward.svg";
+import arrowBackward from "../../resources/images/arrow_back.svg";
 
 const ImageCarousel = (props) => {
   const { screenshots } = props;

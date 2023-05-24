@@ -2,16 +2,16 @@
   --scaleDown: scale(0.98);
   --scaleUp: scale(1.02);
   --quickTransition: all 0.1s ease-in-out;
-  --accentColor: #d8c126;
+  --accentColor: #986fff;
 }
 
 html {
   padding: 0;
   margin: 0;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 .App {
-  background-color: rgba(0, 0, 0, 0.945);
   color: white;
   display: flex;
   flex-direction: column;
