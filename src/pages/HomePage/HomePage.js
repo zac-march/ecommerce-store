@@ -17,6 +17,7 @@ const HomePage = () => {
           needs. Explore our extensive collection of video games, from the
           latest releases to timeless classics. Let the adventure begin!
         </p>
+        <button className={"btn " + style.introBtn}>Browse</button>
       </div>
     </div>
   );
