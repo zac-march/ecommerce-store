@@ -8,10 +8,16 @@
 }
 
 .intro {
-  width: 700px;
-  background-color: rgba(255, 255, 255, 0.29);
-  border-radius: 15px;
   padding: 1rem;
+}
+
+.introContainer {
+  backdrop-filter: blur(8px);
+  width: 700px;
+
+  border-radius: 15px;
+
+  background-color: rgba(255, 255, 255, 0.29);
 }
 
 .home h1 {

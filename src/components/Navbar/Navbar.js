@@ -28,9 +28,8 @@ const Navbar = (props) => {
         </Link>
       </div>
       <div>
-        <button className={`btn ${style.ghBtn}`}></button>
         <a
-          className="routeLink"
+          className={`routeLink ${style.ghBtn}`}
           target="_blank"
           href="https://github.com/zac-march"
           rel="noreferrer"
