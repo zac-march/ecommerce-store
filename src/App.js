@@ -21,7 +21,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/store" exact element={<StorePage />} />
               <Route path="/store/:productId" element={<ProductPage />} />
-              <Route path="*" element={<HomePage to="/pathA" replace />} />
+              <Route path="*" element={<HomePage to="/" replace />} />
             </Routes>
           </CartProvider>
         </ProductProvider>
