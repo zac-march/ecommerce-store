@@ -22,7 +22,7 @@ const Navbar = (props) => {
         </Link>
       </div>
       <div>
-        <button className="btn">zac-march</button>
+        <button className={`btn ${style.ghBtn}`}>zac-march</button>
         <button className="btn" onClick={toggleCart}>
           Cart{cartCount > 0 && ": " + cartCount}
         </button>

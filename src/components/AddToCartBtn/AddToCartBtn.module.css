@@ -5,6 +5,7 @@
   background-color: #20202000;
   color: white;
   transition: var(--quickTransition);
+  font-size: medium;
 }
 
 .addToCart[data-incart="true"] {

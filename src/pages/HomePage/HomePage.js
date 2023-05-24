@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./HomePage.module.css";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -17,7 +18,9 @@ const HomePage = () => {
           needs. Explore our extensive collection of video games, from the
           latest releases to timeless classics. Let the adventure begin!
         </p>
-        <button className={"btn " + style.introBtn}>Browse</button>
+        <Link to={"/store"}>
+          <button className={"btn " + style.introBtn}>Browse</button>
+        </Link>
       </div>
     </div>
   );
