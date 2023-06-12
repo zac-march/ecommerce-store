@@ -1,3 +1,3 @@
-# React Ecommerce Store
+# ZMGames (Ecommerce store)
 
-Work in progress...
+This React-based e-commerce store mimics a Game Store, offering game pages and a cart. It boasts excellent responsiveness and utilizes React Router for seamless navigation between multiple pages.
