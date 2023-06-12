@@ -2,7 +2,7 @@
   --scaleDown: scale(0.98);
   --scaleUp: scale(1.02);
   --quickTransition: all 0.1s ease-in-out;
-  --accentColor: #45c1bc;
+  --accentColor: rgb(69, 193, 188);
 }
 
 html {
